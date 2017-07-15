@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-font-downloader" version="0.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>FontDownloader</name>
+    <description>Cordova iOS Additional Font Downloader</description>
+    <repo>https://github.com/emonkak/cordova-font-downloader</repo>
+    <engines>
+        <engine name="cordova-ios" version=">=4.1.0" />
+    </engines>
+    <platform name="ios">
+        <js-module src="www/font-downloader.js" name="FontDownloader">
+            <clobbers target="cordova.FontDownloader" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="FontDownloader">
+                <param name="ios-package" value="CDVFontDownloader"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVFontDownloader.h" />
+        <source-file src="src/ios/CDVFontDownloader.m" />
+
+        <framework src="CoreText.framework" />
+    </platform>
+</plugin>
